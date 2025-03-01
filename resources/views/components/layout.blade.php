@@ -31,14 +31,14 @@
                 <a href="javascript:void(0)">Companies</a>
             </div>
 
-            <div class="mt-10 max-w-[986px]">
+            <div>
                 <a href="javascript:void(0)">
                     Post a Job
                 </a>
             </div>
         </nav>
 
-        <main>
+        <main class="mt-10 max-w-[986px] mx-auto">
             {{ $slot }}
         </main>
     </div>
