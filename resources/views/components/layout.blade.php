@@ -15,23 +15,23 @@
     @vite('resources/js/app.js')
 </head>
 
-<body>
-    <div>
-        <nav>
+<body class="bg-black text-white">
+    <div class="px-10">
+        <nav class="flex justify-between items-center py-4 border-b border-white/10">
             <div>
                 <a href="{{ route('home') }}">
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Pixel Positions Logo" />
                 </a>
-            </div>
+        </div>
 
-            <div>
+            <div class="space-x-4">
                 <a href="javascript:void(0)">Jobs</a>
                 <a href="javascript:void(0)">Careers</a>
                 <a href="javascript:void(0)">Salaries</a>
                 <a href="javascript:void(0)">Companies</a>
             </div>
 
-            <div>
+            <div class="mt-10 max-w-[986px]">
                 <a href="javascript:void(0)">
                     Post a Job
                 </a>
