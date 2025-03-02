@@ -1,4 +1,4 @@
-<div class="p-4 bg-white/5 rounded-xl flex flex-col text-center">    
+<div class="p-4 bg-white/5 rounded-xl flex flex-col text-center hover:border hover:border-blue-900">    
     <div class="self-start text-sm">
         Laracasts
     </div>

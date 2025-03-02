@@ -24,7 +24,7 @@
                 </a>
         </div>
 
-            <div class="space-x-4">
+            <div class="space-x-4 font-bold">
                 <a href="javascript:void(0)">Jobs</a>
                 <a href="javascript:void(0)">Careers</a>
                 <a href="javascript:void(0)">Salaries</a>
