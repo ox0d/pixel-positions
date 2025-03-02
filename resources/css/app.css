@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -11,4 +12,9 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 
     --color-black: #060606;
+
+    --font-hanken-grotesk: "Hanken Grotesk", sans-serif;
+
+    /* 10px */
+    --text-2xs: 0.625rem;
 }
