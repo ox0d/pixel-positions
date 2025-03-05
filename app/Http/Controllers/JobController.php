@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
+use App\Models\Tag;
 
 class JobController extends Controller
 {
@@ -13,7 +14,14 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $jobs = Job::with('tags', 'employer')->get()->groupBy('featured');
+        $tags = Tag::all();
+
+        return view('jobs.index', [
+            'featuredJobs' => $jobs[1],
+            'jobs' => $jobs[0],
+            'tags' => $tags,
+        ]);
     }
 
     /**

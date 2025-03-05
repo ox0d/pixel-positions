@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Job;
+use App\Models\Tag;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -26,5 +28,13 @@ class DatabaseSeeder extends Seeder
             JobSeeder::class,
             TagSeeder::class
         ]);
+
+
+        $jobs = Job::all();
+
+        foreach ($jobs as $job) {
+            $tagIds = Tag::inRandomOrder()->limit(3)->pluck('id')->toArray();
+            $job->tags()->sync($tagIds);
+        }
     }
 }

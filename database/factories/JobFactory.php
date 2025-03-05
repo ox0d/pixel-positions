@@ -24,7 +24,7 @@ class JobFactory extends Factory
             'location' => $this->faker->randomElement(['Remote', 'On-site', 'Hybrid']),
             'schedule' => $this->faker->randomElement(['Full Time', 'Part Time', 'Contract', 'Internship']),
             'url' => $this->faker->url(),
-            'featured' => false,
+            'featured' => $this->faker->randomElement([true, false]),
         ];
     }
 }
