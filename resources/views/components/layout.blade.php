@@ -19,23 +19,32 @@
     <div class="px-10">
         <nav class="flex justify-between items-center py-4 border-b border-white/10">
             <div>
-                <a href="javascript:void(0)">
+                <a href="{{ route('jobs.index') }}">
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Pixel Positions Logo" />
                 </a>
         </div>
 
             <div class="space-x-4 font-bold">
-                <a href="javascript:void(0)">Jobs</a>
+                <a href="{{ route('jobs.index') }}">Jobs</a>
                 <a href="javascript:void(0)">Careers</a>
                 <a href="javascript:void(0)">Salaries</a>
                 <a href="javascript:void(0)">Companies</a>
             </div>
 
-            <div>
-                <a href="javascript:void(0)">
-                    Post a Job
-                </a>
-            </div>
+            @auth
+                <div>
+                    <a href="javascript:void(0)">
+                        Post a Job
+                    </a>
+                </div>
+            @endauth
+
+            @guest
+                <div class="space-x-4">
+                    <a href="{{ route('register.create') }}">Sign Up</a>
+                    <a href="{{ route('login') }}">Log In</a>
+                </div>
+            @endguest
         </nav>
 
         <main class="mt-10 max-w-[986px] mx-auto">
