@@ -40,10 +40,10 @@ class SessionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
         Auth::logout();
 
-        return redirect()->route('login');
+        return redirect()->route('jobs.index');
     }
 }

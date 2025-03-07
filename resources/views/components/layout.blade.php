@@ -32,10 +32,17 @@
             </div>
 
             @auth
-                <div>
-                    <a href="javascript:void(0)">
+                <div class="space-x-4 flex">
+                    <a href="{{ route('jobs.create') }}">
                         Post a Job
                     </a>
+
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit">Log Out</button>
+                    </form>
                 </div>
             @endauth
 

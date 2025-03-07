@@ -1,7 +1,7 @@
 @props(['tag' => null, 'size' => 'base'])
 
 @php
-    $classes = 'bg-white/10 hover:bg-white/20 rounded-xl transition-colors duration-300';
+    $classes = 'bg-white/10 hover:bg-white/20 rounded-xl transition-colors duration-300 mb-2 inline-block';
 
     if ($size == 'base') {
         $classes .= ' px-5 py-1 text-sm';
@@ -12,4 +12,4 @@
     }
 @endphp
 
-<a href="/tags/{{ str_replace(' ', '-', strtolower($tag->name)) }}" class="{{ $classes }}">{{ $tag->name }}</a>
+<a href="{{ route('tag', $tag->name) }}" class="{{ $classes }}">{{ $tag->name }}</a>

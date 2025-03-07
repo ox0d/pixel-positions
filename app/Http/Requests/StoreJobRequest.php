@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreJobRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreJobRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,16 @@ class StoreJobRequest extends FormRequest
      */
     public function rules(): array
     {
+        $this['featured'] = $this->has('featured');
+
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'salary' => ['required', 'string', 'max:255'],
+            'location' => ['required', 'string', 'max:255'],
+            'schedule' => ['required', 'string', Rule::in(['Full Time', 'Part Time'])],
+            'url' => ['required', 'active-url'],
+            'featured' => ['boolean'],
+            'tags' => ['nullable', 'string', 'max:255'],
         ];
     }
 }
