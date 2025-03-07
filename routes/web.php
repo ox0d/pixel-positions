@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/')->group(function () {
     Route::get('', [JobController::class, 'index'])->name('jobs.index');
 
+    // Invokable controller: a controller that only has an __invoke method
+    Route::get('search', SearchController::class)->name('search');
+    Route::get('tag/{tag:name}', TagController::class)->name('tag');
+
     Route::middleware('guest')->group(function () {
         Route::get('register', [RegisteredUserController::class, 'create'])->name('register.create');
         Route::post('register', [RegisteredUserController::class, 'store'])->name('register.store');
@@ -21,11 +25,6 @@ Route::prefix('/')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('jobs/create', [JobController::class, 'create'])->name('jobs.create');
         Route::post('jobs', [JobController::class, 'store'])->name('jobs.store');
-
-        // Invokable controller: a controller that only has an __invoke method
-        Route::get('search', SearchController::class)->name('search');
-        Route::get('tag/{tag:name}', TagController::class)->name('tag');
-
         Route::delete('logout', [SessionController::class, 'destroy'])->name('logout');
     });
 });
